@@ -29,8 +29,10 @@ extern "C"
 // Major (top-nibble), incremented on backwards incompatible changes
 // Minor (bottom-nibble), incremented on feature additions
 #define LFS_DISK_VERSION 0x00020001
-#define LFS_DISK_VERSION_MAJOR (0xffff & (LFS_DISK_VERSION >> 16))
-#define LFS_DISK_VERSION_MINOR (0xffff & (LFS_DISK_VERSION >>  0))
+#define LFS_DISK_VERSION_MAJOR_GET(disk_version) (0xffff & (disk_version >> 16))
+#define LFS_DISK_VERSION_MINOR_GET(disk_version) (0xffff & (disk_version >>  0))
+#define LFS_DISK_VERSION_MAJOR LFS_DISK_VERSION_MAJOR_GET(LFS_DISK_VERSION)
+#define LFS_DISK_VERSION_MINOR LFS_DISK_VERSION_MINOR_GET(LFS_DISK_VERSION)
 
 
 /// Definitions ///
